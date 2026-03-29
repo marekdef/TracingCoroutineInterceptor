@@ -40,6 +40,8 @@ suspend fun main() {
         }
     }
 
+    delay(1000.milliseconds)
+
     tracer.events.forEach { println(it) }
 
     println(tracer.renderTree())
