@@ -44,7 +44,7 @@ object TreeRenderer {
         val details = buildList {
             if (state.resumeCount > 0) add("resumed ${state.resumeCount}x")
             if (state.totalSuspendedMs > 0) add("total suspended: ${state.totalSuspendedMs}ms")
-            if (state.isCompleted) add("completed ✓")
+            add(state.status.label)
         }
         return if (details.isEmpty()) state.name
         else "${state.name} [${details.joinToString(", ")}]"

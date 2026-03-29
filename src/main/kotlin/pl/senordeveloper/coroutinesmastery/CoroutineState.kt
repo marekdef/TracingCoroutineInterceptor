@@ -7,6 +7,6 @@ class CoroutineState(
 ) {
     var resumeCount: Int = 0
     var totalSuspendedMs: Long = 0
-    var isCompleted: Boolean = false
+    var status: CoroutineStatus = CoroutineStatus.ACTIVE
     internal var lastResumeEndTimestamp: Long = 0
 }

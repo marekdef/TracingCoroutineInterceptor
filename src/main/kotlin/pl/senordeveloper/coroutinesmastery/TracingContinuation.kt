@@ -40,7 +40,11 @@ class TracingContinuation<T>(
 
         state.lastResumeEndTimestamp = System.currentTimeMillis()
         if (job?.isCompleted == true) {
-            state.isCompleted = true
+            state.status = when {
+                job.isCancelled -> CoroutineStatus.CANCELLED
+                result.isFailure -> CoroutineStatus.FAILED
+                else -> CoroutineStatus.COMPLETED
+            }
         }
     }
 }
