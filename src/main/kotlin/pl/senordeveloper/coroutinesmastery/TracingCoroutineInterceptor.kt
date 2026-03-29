@@ -15,4 +15,6 @@ class TracingCoroutineInterceptor : ContinuationInterceptor {
     override fun releaseInterceptedContinuation(continuation: Continuation<*>) {}
 
     fun renderTree(): String = TreeRenderer.render(states.values.toList())
+    fun renderMermaid(): String = MermaidRenderer.render(states.values.toList())
+    fun renderMermaidToFile(path: String = "coroutines.mmd") = MermaidRenderer.renderToFile(states.values.toList(), path)
 }

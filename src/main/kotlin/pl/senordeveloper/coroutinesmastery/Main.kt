@@ -45,4 +45,8 @@ suspend fun main() {
     tracer.events.forEach { println(it) }
 
     println(tracer.renderTree())
+
+    val file = tracer.renderMermaidToFile("coroutines.mmd")
+    println("\nMermaid diagram written to: ${file.absolutePath}")
+    println("Render with: mmdc -i ${file.name} -o coroutines.png")
 }
